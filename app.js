@@ -9,7 +9,7 @@ const {checkUser } = require("./middleware/authentication");
 const app = express();
 
 // connect to mongodb & listen for requests
-const dbURI = "mongodb+srv://ik:test-123@cluster0.hxb0u.mongodb.net/ejs_blog";
+const dbURI = process.env.MONGO_URI;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(result => app.listen(3000, ()=>{console.log('app is up and running on port 3000');}))
